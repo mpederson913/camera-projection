@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <!-- Camera -->
+        <main id="camera">
+            <!-- Camera sensor -->
+            <canvas id="camera--sensor"></canvas>
+            <!-- Camera view -->
+            <video id="camera--view" autoplay playsinline></video>
+            <!-- Camera output -->
+            <img src="//:0" alt="" id="camera--output">
+            <!-- Camera trigger -->
+            <button id="camera--trigger">Take a picture</button>
+
+
+    <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+
+    <script src="client.js" charset="utf-8"></script>
+
+  </body>
+</html>
