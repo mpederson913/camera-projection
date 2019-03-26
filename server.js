@@ -67,7 +67,8 @@ io.on('connection',function(socket){
 
 
 // turn on our server so it can recieve requests.
-let port = 3000
+//let port = 3000
+let port = process.env.PORT || 3000;
 let projectURL = 'http://localhost'
 server.listen(port, function(){
   console.log('open your browser to '+ projectURL + ':' + port + ' to view the project');
