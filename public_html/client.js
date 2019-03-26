@@ -1,7 +1,7 @@
 let socket = io.connect();
 
 // Set constraints for the video stream
-var constraints = { video: { facingMode: "user" }, audio: false };
+var constraints = { video: { facingMode: "environment" }, audio: false };
 // Define constants
 const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
@@ -26,6 +26,7 @@ cameraTrigger.onclick = function() {
     cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
     cameraOutput.src = cameraSensor.toDataURL("image/webp");
     cameraOutput.classList.add("taken");
+
 
     var formData = new FormData();
     formData.append('imageBlob', cameraSensor.toDataURL()) ; // append the sound blob and the name of the file. third argument will show up on the server as req.file.originalname

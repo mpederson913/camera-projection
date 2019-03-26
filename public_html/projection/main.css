@@ -23,7 +23,7 @@ body,html{
 /* This uses the new CSS grid layout tools, they are awesome, learn them!*/
 .imageGrid{
   display:grid;
-  grid-template-columns:  1fr 1fr 1fr 1fr 1fr
+  grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
 }
 
 .imageGrid img{
