@@ -9,7 +9,9 @@ const server = require('http').Server( app )
 const io = require('socket.io')(server);
 const fs = require('fs'); //use the file system so we can save files
 const multer  = require('multer') //use multer to upload blob data
-const upload = multer(); // set multer to be the upload variable (just like express, see above ( include it, then use it/set it up))
+const upload = multer({
+  limits: { fieldSize: 25 * 1024 * 1024 }
+}); // set multer to be the upload variable (just like express, see above ( include it, then use it/set it up))
 
 
 //serve out files in our public_html folder
@@ -27,7 +29,8 @@ app.post('/upload', upload.single('imageBlob'), function (req, res, next) {
 //set the location and filename of our uploaded files, filename is how many milliseconds have passed since january 1 1970.
   // __dirname is the place on the server where this file (server.js) exists (helpful for relative file paths!)
   // concating a string – adding pieces of strings together to make a full piece of text
-  let uploadLocation = __dirname + '/public_html/projection/uploads/' + Date.now() + '.png'  // where to save the file to. make sure the incoming name has a .wav extension
+  let fileName = Date.now() + '.png'
+  let uploadLocation = __dirname + '/public_html/projection/uploads/' + fileName  // where to save the file to. make sure the incoming name has a .wav extension
   // console.log(uploadLocation);
   // actually saves / wrutes the file to the server at our location, using our data, with a base64 ending type to covert it to a real file!
   fs.writeFile(uploadLocation, base64Data , 'base64', function(err) {
@@ -37,16 +40,36 @@ app.post('/upload', upload.single('imageBlob'), function (req, res, next) {
   //send an all good message back to the client.
   res.sendStatus(200); //send back that everything went ok
 
+  io.emit('newPic', fileName )
+
+})
+
+
+io.on('connection',function(socket){
+
+  socket.on('getTotalFiles', function(){
+      //get the file list
+      //look in the uploads folder
+      console.warn('[warning]: if the server crashed, or something is not working, check that there is no ".DS_Store" file in the uploads folder')
+        fs.readdir(__dirname + '/public_html/projection/uploads/', function(err, files){
+          //send back the list of file names
+          io.emit('queryFiles', files)
+
+
+        })
+
+
+  })
+
 })
 
 
 
 
-
-
-
 // turn on our server so it can recieve requests.
-server.listen(3000, function(){
-  console.log('app is listening on port 3000!');
+let port = 3000
+let projectURL = 'http://localhost'
+server.listen(port, function(){
+  console.log('open your browser to '+ projectURL + ':' + port + ' to view the project');
   console.log('so cool!');
 })

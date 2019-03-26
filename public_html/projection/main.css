@@ -1,4 +1,4 @@
-.row {
+/*.row {
   display: flex;
   flex-wrap: wrap;
   padding: 0 4px;
@@ -12,4 +12,31 @@
 .column img {
   margin-top: 8px;
   vertical-align: middle;
+}*/
+
+
+body,html{
+  margin:0px;
+  padding:0px;
+}
+
+/* This uses the new CSS grid layout tools, they are awesome, learn them!*/
+.imageGrid{
+  display:grid;
+  grid-template-columns:  1fr 1fr 1fr 1fr 1fr
+}
+
+.imageGrid img{
+  width: 75%;
+  float:right;
+
+}
+
+.word{
+  font-family: 'Poppins', sans-serif;
+  font-size: 125%;
+  padding: 5%;
+  width: 25%;
+  float:left;
+  /* position: sticky;
 }
