@@ -2,7 +2,7 @@
 .word{
   font-family: 'Poppins', sans-serif;
   font-size:500%;
-  padding: 5%;
+  padding-top: 50%;
   width: 100%;
   float:left;
   /* position: sticky;
