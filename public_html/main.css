@@ -41,6 +41,6 @@ html, body{
  /*display: none; /* Hidden by default */
  width: 100%; /* Full width (cover the whole page) */
  height: 100%; /* Full height (cover the whole page) */
- background-color: black; /* Black background with opacity */
+filter: grayscale();
  z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
 }
