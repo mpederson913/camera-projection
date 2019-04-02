@@ -21,6 +21,10 @@ function cameraStart() {
 }
 // Take a picture when cameraTrigger is tapped
 cameraTrigger.onclick = function() {
+
+    //show indetermanite loader
+    $('.loader').show();
+
     cameraSensor.width = cameraView.videoWidth;
     cameraSensor.height = cameraView.videoHeight;
     cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
