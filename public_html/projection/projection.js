@@ -35,8 +35,9 @@ socket.on('queryFiles', function(files){
     // $('.imageGrid').append(`<img src="uploads/${files[index]}">`)
 
     //concating a string
-    $('.imageGrid').append('<img src="uploads/' + files[index] + '">')
-
+    if(files[index] != "prime.png"){
+      $('.imageGrid').append('<img src="uploads/' + files[index] + '">')
+    }
 
   }
 
