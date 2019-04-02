@@ -28,13 +28,13 @@ html, body{
     bottom: 30px;
     left: calc(50% - 100px);
 }
-.taken{
+/*.taken{
     height: 100%!important;
     width: 100%!important;
     transition: all 0.5s ease-in;
     /*top: 20px;
     right: 20px;*/
-    z-index: 2;
+    /*z-index: 2;*/
 }
 .overlay{
  position: fixed; /* Sit on top of the page content */
