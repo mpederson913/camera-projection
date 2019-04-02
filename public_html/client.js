@@ -52,7 +52,7 @@ cameraTrigger.onclick = function() {
 
 
     //This is where you can wipe the screen and do something else, or re-route to another page...
-    // window.location = "http://mcad.edu"
+    window.location = "http://mcad.edu"
 
 };
 // Start the video stream when the window loads
