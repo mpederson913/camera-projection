@@ -47,12 +47,13 @@ cameraTrigger.onclick = function() {
     success: function(data){
         // alert(data);
         console.log('image uploaded successfully')
+        //This is where you can wipe the screen and do something else, or re-route to another page...
+        window.location = "thank/"
+
       }
     });
 
 
-    //This is where you can wipe the screen and do something else, or re-route to another page...
-    window.location = "https://location-projection.herokuapp.com/thank/"
 
 };
 // Start the video stream when the window loads
