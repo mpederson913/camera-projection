@@ -15,10 +15,10 @@ html, body{
     filter: FlipH;
 }
 #camera--trigger{
-    width: 300px;
+    width: 200px;
     background-color: black;
     color: white;
-    font-size: 50px;
+    font-size: 30px;
     border-radius: 30px;
     border: none;
     padding: 15px 20px;
